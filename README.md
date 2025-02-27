@@ -1,2 +1,2 @@
-# capitalquiz
-Python mini game
+# 首都クイズ
+

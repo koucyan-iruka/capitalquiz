@@ -16,12 +16,12 @@ with open('capital_cities_2024.csv', mode='r', encoding='shift_jis') as file:
 
     i = 1
     s = 5
-    print('1:簡単')
-    print('2:普通')
-    print('3:難しい')
+    print('1:Easy')
+    print('2:Normal')
+    print('3:Hard')
     print('9:IMPOSSIBLE')
 
-    lv = int(input('レベル選択:'))
+    lv = int(input('Select Level:'))
     dif = 0
     impossible = False
 
@@ -35,10 +35,10 @@ with open('capital_cities_2024.csv', mode='r', encoding='shift_jis') as file:
         elif(lv == 9):
             dif = 197
             impossible = True
-            print('仕様上1文字でも間違えると不正解になります')
-            print('空欄で回答するとスキップ')
+            print('Due to the specifications, if even one character is incorrect, the answer will be incorrect.')
+            print('Skip if answer is blank')
     else:
-        print('有効な値を入力してください')
+        print('Enter a valid value')
 
 print('Start!\n')
 
@@ -50,38 +50,38 @@ while True:
     q = ctry_list[ans]
 
     #start game
-    print(i,q + " の首都は？\n")
+    print(i,"Where is the " q + "'s capital city? \n")
     if (impossible == False):
         for idx, city in enumerate(opt_ary, start=1):
             print(f"{idx}. {city}")
         print()  # 改行
 
-        a = int(input('番号で回答'))
+        a = int(input('Answer with number'))
 
         if (a == rnd + 1):
-            print('\n正解！\n')
+            print('\nCorrect!\n')
             i = i + 1
         else:
-            print('\n不正解')
-            print(q + ' の首都は' , rnd + 1 , '番の ' + cptl_list[ans] + ' だぞ！\n')
+            print('\nIncorrect')
+            print(q + "'s capital city is" , 'option no.',rnd + 1 , '' + cptl_list[ans] + '!\n')
             break
     else:
         a = input()
 
         if (a == cptl_list[ans]):
-            print('\n正解！\n')
+            print('\nCorrect!\n')
             i = i + 1
         elif(a == ''):
             if (s > 0):
                 s = s - 1
-                print('スキップ使用 残り', s , '回')
+                print('Used Skip. Remaining', s )
                 i = i + 1
             else:
-                print('\n不正解')
-                print(q + ' の首都は ' + cptl_list[ans] + ' だぞ！\n')
+                print('\nIncorrect')
+                print(q + "'s capital city is" + cptl_list[ans] + '!\n')
                 break
         else:
-            print('\n不正解')
-            print(q + ' の首都は ' + cptl_list[ans] + ' だぞ！\n')
+            print('\nIncorrect')
+            print(q + "'s capital city is" + cptl_list[ans] + ' だぞ！\n')
             break
 
