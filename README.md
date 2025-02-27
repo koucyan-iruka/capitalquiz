@@ -1,0 +1,2 @@
+# capitalquiz
+Python mini game
