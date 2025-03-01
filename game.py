@@ -6,7 +6,7 @@ import random
 cptl_list = []
 ctry_list = []
 
-with open('capital_cities_2024.csv', mode='r', encoding='shift_jis') as file:
+with open('capital_cities.csv', mode='r', encoding='utf-8') as file:
     reader = csv.reader(file)
     next(reader) #skip header
 
@@ -56,7 +56,7 @@ while True:
             print(f"{idx}. {city}")
         print()  # 改行
 
-        a = int(input('番号で回答'))
+        a = int(input('番号で回答:'))
 
         if (a == rnd + 1):
             print('\n正解！\n')
