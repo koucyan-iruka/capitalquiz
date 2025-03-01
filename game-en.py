@@ -6,13 +6,13 @@ import random
 cptl_list = []
 ctry_list = []
 
-with open('capital_cities_2024.csv', mode='r', encoding='shift_jis') as file:
+with open('capital_cities.csv', mode='r', encoding='utf-8') as file:
     reader = csv.reader(file)
     next(reader) #skip header
 
     for row in reader:
-        cptl_list.append(row[5])
-        ctry_list.append(row[6])
+        cptl_list.append(row[1])
+        ctry_list.append(row[2])
 
     i = 1
     s = 5
@@ -50,20 +50,20 @@ while True:
     q = ctry_list[ans]
 
     #start game
-    print(i,"Where is the " q + "'s capital city? \n")
+    print(i,"Where is the ", q + "'s capital city? \n")
     if (impossible == False):
         for idx, city in enumerate(opt_ary, start=1):
             print(f"{idx}. {city}")
-        print()  # 改行
+        print() 
 
-        a = int(input('Answer with number'))
+        a = int(input('Answer by number:'))
 
         if (a == rnd + 1):
             print('\nCorrect!\n')
             i = i + 1
         else:
             print('\nIncorrect')
-            print(q + "'s capital city is" , 'option no.',rnd + 1 , '' + cptl_list[ans] + '!\n')
+            print(q + "'s capital city is" , 'option no.', rnd + 1 , '' , cptl_list[ans] + '!\n')
             break
     else:
         a = input()
